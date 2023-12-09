@@ -37,8 +37,8 @@ Then clone the repository and run the script:
 git clone https://github.com/anasfik/flutter-spy.git # Clone the repository
 cd flutter-spy # Change the directory to the cloned repository
 cd src # Change the directory to the source code
-export PATH=$PATH:"$(pwd)" >> ~/.bashrc # Add the script to your PATH
-source ~/.bashrc # Reload your bashrc file
+echo 'export PATH=$PATH:"$(pwd)"' >> ~/.bashrc # Add the script to your PATH (if you use zsh, replace .bashrc with .zshrc)
+source ~/.bashrc # Reload your bashrc file (if you use zsh, replace .bashrc with .zshrc)
 
 ```
 
