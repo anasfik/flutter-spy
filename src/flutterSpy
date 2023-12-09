@@ -2,12 +2,15 @@
 
 jadxPath="/home/gwhyyy/jadx-1.4.7/bin/jadx"
 
-source src/lib/utils.sh
-source src/lib/spy.sh
-source src/lib/decompile.sh
-source src/lib/extract_info_from_libapp.sh
+providedFileName=$(pwd)/$1
 
-providedFileName=$1
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+# source "$DIR/../includes/setup.sh"
+
+source "$DIR/lib/utils.sh"
+source "$DIR/lib/spy.sh"
+source "$DIR/lib/decompile.sh"
+source "$DIR/lib/extract_info_from_libapp.sh"
 
 
 if noArgumentsProvided $@; then
@@ -17,8 +20,9 @@ else
     echo "File name provided: $providedFileName"
 fi
 
-
+echo $providedFileName
 if doesFileExist $providedFileName; then
+    echo ""
     echo "File $providedFileName exists."
 else
     echo "File $providedFileName does not exist."
@@ -27,6 +31,7 @@ fi
 
 
 if jadxExist $providedFileName; then
+    echo ""
     echo "Jadx is installed."
 else
     echo "Jadx is not found, Please install it."
@@ -36,6 +41,7 @@ fi
 
 
 if isProvidedFileApk $providedFileName; then
+    echo ""
     echo "File $providedFileName is an apk file."
 else
     echo "File $providedFileName is not an apk file."
