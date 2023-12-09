@@ -2,45 +2,45 @@
 
 ## Overview
 
-Flutter Spy is a Bash-based command-line tool designed to provide insightful analysis and data extraction capabilities for reverse-engineered Flutter apps. It empowers developers, bug hunters, and security enthusiasts to explore and uncover valuable information within Flutter app binaries.
+Flutter Spy is a Bash-based command-line tool designed to provide insightful code analysis and data extraction capabilities from built Flutter apps with reverse engineering. It empowers developers, bug hunters, and security enthusiasts to explore and uncover valuable information within Flutter app binaries.
+
+Flutter Spy support currently gathering info from Android apps only (APK files), thus it is universal for almost other platforms since this is what Flutter is used for.  
 
 ## Features
 
-- [x] Data Extraction: Extracts essential information such as API endpoints, URLs, emails, used packages, phone numbers, secret/public keys, environment variables, and config files.
+- [ ] Data Extraction: Extracts essential information such as API endpoints, URLs, emails, used packages, phone numbers, secret/public keys, environment variables, and config files.
+  - [x] Extract emails.
+  - [x] Extract URLs/URIs.
+  - [x] Extract potential phone numbers.
+  - [x] Extract potential API endpoints/routes.
+  - [x] Extract used Flutter packages and their links at [pub.dev](https://pub.dev/).
+  - [ ] Extract common API keys such as Firebase, Stripe, OpenAI, AWS...
+  - [ ] Extract SQL and other database queries...
+  - [ ] Extract .env (Environment Variables) files.
+  - [ ] Extract Potential JSON/YAML config files.
+  - [ ] Extract Potential localization files.
+  - [ ] Extract all other Flutter assets (PNG, GIF, SVG, TTF, PSD, WEBP...).
+  - [ ] Extract used Flutter Engine information as the used Flutter engine.
 
 - [ ] Code Analysis: Performs static analysis on the app's code to identify potential security issues and vulnerabilities.
+  - [ ]  Analyse the AndroidManifest.xml file and gather permissions, intents, activities, services, compileSdkVersion, minSdkVersion, targetSdkVersion.
+  - [ ]  Analyse MainActivity.java used platform channels, initializations...
 
-- [ ] Automated bugs hunting: Identifies common security issues and vulnerabilities such as unsecured API endpoints, exposed sensitive data, Insecure Firebase Database,
+- [ ] Automated bug hunting: Identifies common security issues and vulnerabilities such as unsecured API endpoints, exposed sensitive data, and Insecure Firebase Database (this is planned to be done with another language, maybe Python or Dart itself).
 
-- [ ] AI-powered: Uses OpenAI's GPT-3.5/GPT-4 to validate the extracted data and identify potential security issues.
-
-- [ ] Exportable Reports: Generates a detailed report in HTML format that can be easily shared with others.
+- [ ] Exportable Reports: Output a detailed report folder with all results.
 
 - [ ] Easy to use: Flutter Spy is designed to be easy to use and requires no prior knowledge of Flutter or Dart, you can use it on any built Flutter app.
 
-## Preqrequisites
+## Prerequisites
 
-- [x] JadX CLI, used to decompile the APK file you can get it from [here](https://github.com/skylot/jadx)
+- [x] grep
+- [x] Jadx CLI, used to decompile the APK file you can get it from [here](https://github.com/skylot/jadx)
 - [x] Bash, used to run the script.
 
 ## Installation
 
-To locate Jadx on your system, you will need to add it to your PATH environment variable. To do so, run the following command:
-
-```bash
-export PATH=$PATH:/path/to/jadx/bin
-```
-
-Then clone the repository and run the script:
-
-```bash
-git clone https://github.com/anasfik/flutter-spy.git # Clone the repository
-cd flutter-spy # Change the directory to the cloned repository
-cd src # Change the directory to the source code
-echo "export PATH=$PATH:$(pwd)" >> ~/.bashrc # Add the script to your PATH (if you use zsh, replace .bashrc with .zshrc)
-source ~/.bashrc # Reload your bashrc file (if you use zsh, replace .bashrc with .zshrc)
-
-```
+- I will drop an installation steps for this once I complete one of the [features](#features)
 
 ## Usage
 
