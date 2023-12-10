@@ -3,8 +3,6 @@
 echo -e "\e[33mFlutter-spy is under active development, please check https://github.com/anasfik/flutter-spy/ for updates.\e[0m"
 echo ""
 
-jadxPath="/home/gwhyyy/jadx-1.4.7/bin/jadx"
-
 providedFileName=$(pwd)/$1
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
