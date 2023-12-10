@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 startSpy() {
     #    decompileApp $1

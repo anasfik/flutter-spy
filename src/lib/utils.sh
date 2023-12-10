@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 doesFileExist() {
     local file=$1

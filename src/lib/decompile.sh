@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 decompileApp() {
     local file=$1

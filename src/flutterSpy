@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 jadxPath="/home/gwhyyy/jadx-1.4.7/bin/jadx"
 
