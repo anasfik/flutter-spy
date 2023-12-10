@@ -16,14 +16,14 @@ Flutter Spy support currently gathering info from Android apps only (APK files),
   - [x] Extract used Flutter packages and their links at [pub.dev](https://pub.dev/).
   - [ ] Extract common API keys such as Firebase, Stripe, OpenAI, AWS...
   - [ ] Extract SQL and other database queries...
-  - [ ] Extract .env (Environment Variables) files.
+  - [ ] Extract `.env` (Environment Variables) files.
   - [ ] Extract Potential JSON/YAML config files.
   - [ ] Extract Potential localization files.
   - [ ] Extract all other Flutter assets (PNG, GIF, SVG, TTF, PSD, WEBP...).
   - [ ] Extract used Flutter Engine information as the used Flutter engine.
 
 - [ ] Code Analysis: Performs static analysis on the app's code to identify potential security issues and vulnerabilities.
-  - [ ]  Analyse the AndroidManifest.xml file and gather permissions, intents, activities, services, compileSdkVersion, minSdkVersion, targetSdkVersion.
+  - [ ]  Analyse the `AndroidManifest.xml` file and gather permissions, intents, activities, services, compileSdkVersion, minSdkVersion, and targetSdkVersion.
   - [ ]  Analyse MainActivity.java used platform channels, initializations...
 
 - [ ] Automated bug hunting: Identifies common security issues and vulnerabilities such as unsecured API endpoints, exposed sensitive data, and Insecure Firebase Database (this is planned to be done with another language, maybe Python or Dart itself).
@@ -33,25 +33,24 @@ Flutter Spy support currently gathering info from Android apps only (APK files),
 - [ ] Easy to use: Flutter Spy is designed to be easy to use and requires no prior knowledge of Flutter or Dart, you can use it on any built Flutter app.
 
 ## Prerequisites
+To run Flutter Spy without issues, make sure these utilities are installed globally in your machine.
 
-- [x] grep
-- [x] Jadx CLI, used to decompile the APK file you can get it from [here](https://github.com/skylot/jadx)
-- [x] Bash, used to run the script.
+- [x] [Jadx CLI](https://github.com/skylot/jadx): Used to decompile the APK file, Flutter Spy will look to get its full path with `which jadx` command.
 
 ## Installation
 
-Note: Before installing Flutter Spy, please know that Flutter Spy is under active development, there a lot of [features](#features) that are not implemented or incomplete.
+Note: Before installing Flutter Spy, please know that Flutter Spy is under active development, there are a lot of [features](#features) that are not implemented or incomplete.
 
 Run this command in your terminal to install Flutter Spy:
 
 ```bash
 git clone https://github.com/anasfik/flutter-spy.git # Clone the repo
-cd flutter-spy # Change directory to the repo
+cd flutter-spy # Change the directory to the repo
 chmod +x INSTALLER.sh # Make the installer executable
 ./INSTALLER.sh # Run the installer
 ```
 
-This will install Flutter Spy in your home directory, at `~/.flutter-spy/`, and adds the export path command to the correct profile file (`.bashrc` for Bash, `.zshrc` for ZSH, and `.profile` for Fish).
+This will install Flutter Spy in your home directory, at `~/.flutter-spy/`, and add the export path command to the correct profile file (`.bashrc` for Bash, `.zshrc` for ZSH, and `.profile` for Fish).
 
 Open a new terminal window and run `flutterspy` to make sure that the installation was successful.
 
