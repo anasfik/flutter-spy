@@ -40,7 +40,18 @@ Flutter Spy support currently gathering info from Android apps only (APK files),
 
 ## Installation
 
-- I will drop an installation steps for this once I complete one of the [features](#features)
+Run this command in your terminal to install Flutter Spy:
+
+```bash
+git clone https://github.com/anasfik/flutter-spy.git # Clone the repo
+cd flutter-spy # Change directory to the repo
+chmod +x INSTALLER.sh # Make the installer executable
+./INSTALLER.sh # Run the installer
+```
+
+This will install Flutter Spy in your home directory, at `~/.flutter-spy/`, and adds the export path command to the correct profile file (`.bashrc` for Bash, `.zshrc` for ZSH, and `.profile` for Fish).
+
+Open a new terminal window and run `flutterspy` to make sure that the installation was successful.
 
 ## Usage
 
