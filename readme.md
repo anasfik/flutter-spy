@@ -40,6 +40,8 @@ Flutter Spy support currently gathering info from Android apps only (APK files),
 
 ## Installation
 
+Note: Before installing Flutter Spy, please know that Flutter Spy is under active development, there a lot of [features](#features) that are not implemented or incomplete.
+
 Run this command in your terminal to install Flutter Spy:
 
 ```bash
