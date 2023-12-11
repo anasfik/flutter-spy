@@ -17,8 +17,9 @@ Flutter Spy support currently gathering info from Android apps only (APK files),
   - [ ] Extract common API keys such as Firebase, Stripe, OpenAI, AWS...
   - [ ] Extract SQL and other database queries...
   - [x] Extract `.env` (Environment Variables) files.
-  - [ ] Extract Potential JSON/YAML config files.
-  - [ ] Extract Potential localization files.
+  - [x] Extract Potential JSON/YAML config files.
+  - [x] Extract content-specific files. (md, html, css, js...)
+  - [x] Extract Potential localization files.
   - [ ] Extract all other Flutter assets (PNG, GIF, SVG, TTF, PSD, WEBP...).
   - [ ] Extract used Flutter Engine information as the used Flutter engine.
   - [ ] Extract the original project file structure.
@@ -36,7 +37,7 @@ Flutter Spy support currently gathering info from Android apps only (APK files),
 ## Prerequisites
 To run Flutter Spy without issues, make sure these utilities are installed globally in your machine.
 
-- [x] [Jadx CLI](https://github.com/skylot/jadx): Used to decompile the APK file, Flutter Spy will look to get its full path with `which jadx` command.
+- [x] [Jadx CLI](https://github.com/skylot/jadx): Used to decompile the APK file, Flutter Spy will look to get its full path with `which jadx` command. (if you are on debian-based distros such Ubuntu/Kali Linux, you can install it via sudo apt install jadx)
 
 ## Installation
 
