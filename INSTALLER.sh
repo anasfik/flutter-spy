@@ -48,5 +48,3 @@ fi
 echo "Flutter Spy installed successfully!"
 echo "open a new terminal and run 'flutterspy' to get started."
 
-
-

@@ -17,8 +17,8 @@ source "$DIR/lib/content_files"
 source "$DIR/lib/visual_asset_files"
 
 if noArgumentsProvided $@; then
-    echo "No arguments provided. Please provide a file name."
-    exit 1
+    showRootCommandContent
+    exit 0
 else
     echo "File name provided: $providedFileName"
 fi
