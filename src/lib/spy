@@ -21,7 +21,7 @@ spyOnLibAppSoFile() {
         extractInfoFromLibAppSoFile $firstLibAppSoFile $reportOutputDir
         
     else
-        echo "Failed to find libapp.so file."
+        echo "Failed to find libapp.so file, please make sure that the provided apk file is a flutter app."
         exit 1
     fi
     
@@ -37,4 +37,5 @@ startSpy() {
     decompileApp $1 $reportOutputDir
     spyOnLibAppSoFile $1 $reportOutputDir
     spyOnEnvFiles $1 $reportOutputDir
+    spyOnAssetConfigFiles $1 $reportOutputDir
 }

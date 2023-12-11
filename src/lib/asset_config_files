@@ -1,0 +1,31 @@
+#!/bin/bash
+
+spyOnAssetConfigFiles() {
+    decompiledFolderBaseName=$(basename $1)
+    reportOutputDir=$2
+    assetFilePaths=$(find "$reportOutputDir/$decompiledFolderBaseName-decompiled" -name "*.json*" -o -name "*.yaml*" -o -name "*.yml*" -o -name "*.xml*" -o -name "*.properties*"  -o -name "*.ini*" | grep -Ea "assets")
+    
+    
+    if [ -n "$assetFilePaths" ]; then
+        echo ""
+        
+        mkdir -p $reportOutputDir/config_files
+        
+        echo ""
+        for assetFilePath in $assetFilePaths ; do
+            onlyFileName=$(basename $assetFilePath)
+            
+            echo "Found $onlyFileName file."
+            
+            
+            targetPath=$reportOutputDir/config_files/$onlyFileName
+            # echo "Copying $assetFilePath to $targetPath"
+            cp $assetFilePath $targetPath
+        done
+    else
+        echo "No .json, .yaml, .yml, .xml, .properties or .ini files found."
+        
+    fi
+    
+    
+}

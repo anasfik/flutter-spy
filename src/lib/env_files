@@ -21,14 +21,13 @@ spyOnEnvFiles() {
             echo ""
             
             targetPath=$reportOutputDir/env_files/file_$onlyFileName
-            echo "Copying $envFilePath to $targetPath"
+            #echo "Copying $envFilePath to $targetPath"
             cp $envFilePath $targetPath
             
             echo ""
         done
     else
-        echo "Failed to find .env file."
-        exit 1
+        echo "No .env files found."
     fi
     
     

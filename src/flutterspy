@@ -12,6 +12,8 @@ source "$DIR/lib/spy"
 source "$DIR/lib/decompile"
 source "$DIR/lib/info_from_libapp"
 source "$DIR/lib/env_files"
+source "$DIR/lib/asset_config_files"
+source "$DIR/lib/content_files"
 
 if noArgumentsProvided $@; then
     echo "No arguments provided. Please provide a file name."

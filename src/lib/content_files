@@ -1,0 +1,34 @@
+#!/bin/bash
+
+spyOnContentFiles() {
+    decompiledFolderBaseName=$(basename $1)
+    reportOutputDir=$2
+    contentFilePaths=$(find "$reportOutputDir/$decompiledFolderBaseName-decompiled" -name "*.md*" -o -name "*.txt*" -o -name "*.html*" -o -name "*.htm*" -o -name "*.css*" -o -name "*.js*" | grep -Ea "assets")
+    
+    if [ -n "$contentFilePaths" ]; then
+        echo ""
+        
+        mkdir -p $reportOutputDir/content_files
+        
+        for contentFilePath in $contentFilePaths ; do
+            onlyFileName=$(basename $contentFilePath)
+            
+            echo ""
+            echo "Found $onlyFileName file with the following content:"
+            echo "**************"
+            cat $contentFilePath
+            echo "**************"
+            echo ""
+            
+            targetPath=$reportOutputDir/content_files/file_$onlyFileName
+            #echo "Copying $contentFilePath to $targetPath"
+            cp $contentFilePath $targetPath
+            
+            echo ""
+        done
+    else
+        echo "No .md, .txt, .html, .htm, .css or .js files found."
+    fi
+    
+    
+}
