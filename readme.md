@@ -16,7 +16,7 @@ Flutter Spy support currently gathering info from Android apps only (APK files),
   - [x] Extract used Flutter packages and their links at [pub.dev](https://pub.dev/).
   - [ ] Extract common API keys such as Firebase, Stripe, OpenAI, AWS...
   - [ ] Extract SQL and other database queries...
-  - [ ] Extract `.env` (Environment Variables) files.
+  - [x] Extract `.env` (Environment Variables) files.
   - [ ] Extract Potential JSON/YAML config files.
   - [ ] Extract Potential localization files.
   - [ ] Extract all other Flutter assets (PNG, GIF, SVG, TTF, PSD, WEBP...).
