@@ -4,7 +4,7 @@
 
 Flutter Spy is a Bash-based command-line tool designed to provide insightful code analysis and data extraction capabilities from built Flutter apps with reverse engineering. It empowers developers, bug hunters, and security enthusiasts to explore and uncover valuable information within Flutter app binaries.
 
-Flutter Spy support currently gathering info from Android apps only (APK files), thus it is universal for almost other platforms since this is what Flutter is used for.  
+Flutter Spy support currently gathering info from Android apps only (APK files), thus it is universal for almost all other platforms since this is what Flutter is used for.  
 
 ## Features
 
@@ -30,14 +30,14 @@ Flutter Spy support currently gathering info from Android apps only (APK files),
 
 - [ ] Automated bug hunting: Identifies common security issues and vulnerabilities such as unsecured API endpoints, exposed sensitive data, and Insecure Firebase Database (this is planned to be done with another language, maybe Python or Dart itself).
 
-- [ ] Exportable Reports: Output a detailed report folder with all results.
+- [x] Exportable Reports: Output a detailed report folder with all results.
 
-- [ ] Easy to use: Flutter Spy is designed to be easy to use and requires no prior knowledge of Flutter or Dart, you can use it on any built Flutter app.
+- [x] Easy to use: Flutter Spy is designed to be easy to use and requires no prior knowledge of Flutter or Dart, you can use it on any built Flutter app.
 
 ## Prerequisites
 To run Flutter Spy without issues, make sure these utilities are installed globally in your machine.
 
-- [x] [Jadx CLI](https://github.com/skylot/jadx): Used to decompile the APK file, Flutter Spy will look to get its full path with `which jadx` command. (if you are on debian-based distros such Ubuntu/Kali Linux, you can install it via sudo apt install jadx)
+- [x] [Jadx CLI](https://github.com/skylot/jadx): Used to decompile the APK file, Flutter Spy will look to get its full path with `which jadx` command. (if you are on Debian-based distros such as Ubuntu/Kali Linux, you can install it via sudo apt install jadx)
 
 ## Installation
 
