@@ -1,14 +1,7 @@
 #!/bin/bash
 
-startSpy() {
-    decompileApp $1
-    spyOnLibAppSoFile $1
-}
-
 spyOnLibAppSoFile() {
     fromLibAppSoFile=$(find $1-decompiled -name "libapp.so")
-    
-    
     
     if [ $? -eq 0 ]; then
         echo ""
@@ -27,3 +20,10 @@ spyOnLibAppSoFile() {
     
 }
 
+
+
+startSpy() {
+    # decompileApp $1
+    # spyOnLibAppSoFile $1
+    spyOnEnvFiles $1
+}

@@ -10,8 +10,8 @@ DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 source "$DIR/lib/utils"
 source "$DIR/lib/spy"
 source "$DIR/lib/decompile"
-source "$DIR/lib/extract_info_from_libapp"
-
+source "$DIR/lib/info_from_libapp"
+source "$DIR/lib/env_files"
 
 if noArgumentsProvided $@; then
     echo "No arguments provided. Please provide a file name."

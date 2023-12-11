@@ -1,0 +1,24 @@
+#!/bin/env
+
+spyOnEnvFiles() {
+    envFilePAths=$(find $1-decompiled -name "*.env*")
+    
+    if [ $? -eq 0 ]; then
+        echo ""
+        
+        for envFilePath in $envFilePAths ; do
+            onlyFileName=$(echo $envFilePath | rev | cut -d '/' -f 1 | rev)
+            echo ""
+            echo "Found $onlyFileName file with the following content:"
+            echo "**************"
+            cat $envFilePath
+            echo "**************"
+            echo ""
+        done
+    else
+        echo "Failed to find .env file."
+        exit 1
+    fi
+    
+    
+}
