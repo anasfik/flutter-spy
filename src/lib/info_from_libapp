@@ -10,7 +10,7 @@ extractEmailsFromLibAppSoFile() {
     echo $emails
     echo ""
     
-    echo $emails > $reportOutputDir/emails.txt
+    echo "$emails" > $reportOutputDir/emails.txt
 }
 
 extractUrlsFromLibAppSoFile() {
@@ -57,7 +57,7 @@ extractUrlsFromLibAppSoFile() {
     done
     echo ""
     
-    echo $uriFormattedCommand > $reportOutputDir/urls.txt
+    echo "$uriFormattedCommand" > $reportOutputDir/urls.txt
 }
 
 extractPhoneNumbersFromLibAppSoFile() {
@@ -74,7 +74,7 @@ extractPhoneNumbersFromLibAppSoFile() {
     done
     echo ""
     
-    echo $phoneNumbers > $reportOutputDir/phone_numbers.txt
+    echo "$phoneNumbers" > $reportOutputDir/phone_numbers.txt
 }
 
 extractApiEndpointsFromLibAppSoFile() {
@@ -91,13 +91,18 @@ extractApiEndpointsFromLibAppSoFile() {
     done
     echo ""
     
-    echo $apiEndpoints > $reportOutputDir/api_endpoints.txt
+    echo "$apiEndpoints" > $reportOutputDir/api_endpoints.txt
 }
 
 extractPackageNamesFromLibAppSoFile() {
     soFiles="$1/libapp"
     
-    packageNames=$(grep -Eoa 'package:.*dart' -rh $soFiles | awk 'length($0) > 3' | grep -oP ':\K[^:/]+/' | awk -F '/' '{print $1}'| sort -u)
+    pathFromAppFlutterPackageName=$(grep -Eoa 'package:.*main.dart' -rh $soFiles | sort -u)
+    
+    appFlutterPackageName=$(echo "$pathFromAppFlutterPackageName" | awk -F'[:/]' '{print $2}' | sort -u)
+    
+    
+    packageNames=$(grep -Eoa 'package:.*dart' -rh $soFiles | awk 'length($0) > 3' | grep -oP ':\K[^:/]+/' | grep -va "$appFlutterPackageName" | awk -F '/' '{print $1}'| sort -u)
     
     all=$(echo "$packageNames")
     
@@ -108,7 +113,21 @@ extractPackageNamesFromLibAppSoFile() {
     done
     echo ""
     
-    echo $packageNames > $reportOutputDir/packages.txt
+    echo "$packageNames" > $reportOutputDir/packages.txt
+    
+    ######################################################
+    
+    pathsOfFlutterAppPackageName=$(grep -Eoa "package:$appFlutterPackageName.*dart" -rh $soFiles | sort -u)
+    
+    echo ""
+    
+    echo "Paths of $appFlutterPackageName: (The app flutter package name)"
+    for path in $pathsOfFlutterAppPackageName ; do
+        echo $path
+    done
+    
+    echo ""
+    echo "$pathsOfFlutterAppPackageName" > $reportOutputDir/paths_of_flutter_app_package_name.txt
 }
 
 
