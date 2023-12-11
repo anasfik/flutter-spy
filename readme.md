@@ -21,6 +21,7 @@ Flutter Spy support currently gathering info from Android apps only (APK files),
   - [ ] Extract Potential localization files.
   - [ ] Extract all other Flutter assets (PNG, GIF, SVG, TTF, PSD, WEBP...).
   - [ ] Extract used Flutter Engine information as the used Flutter engine.
+  - [ ] Extract the original project file structure.
 
 - [ ] Code Analysis: Performs static analysis on the app's code to identify potential security issues and vulnerabilities.
   - [ ]  Analyse the `AndroidManifest.xml` file and gather permissions, intents, activities, services, compileSdkVersion, minSdkVersion, and targetSdkVersion.
@@ -65,5 +66,3 @@ And that's it, the script will do the rest for you.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-```
