@@ -23,7 +23,7 @@ spyOnLibAppSoFile() {
 
 
 startSpy() {
-    # decompileApp $1
-    # spyOnLibAppSoFile $1
+    decompileApp $1
+    spyOnLibAppSoFile $1
     spyOnEnvFiles $1
 }
