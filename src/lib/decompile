@@ -2,14 +2,22 @@
 
 decompileApp() {
     local file=$1
-    echo "Decompiling $file..."
-    jadxPAth=$(which jadx)
+    local reportOutputDir=$2
     
-    $jadxPath -d $file-decompiled $file
+    echo "Decompiling $file..."
+    
+    jadxPath=$(which jadx)
+    
+    echo "jadx path: $jadxPath"
+    
+    $jadxPath -d "$file-decompiled" $file
     
     if [ $? -eq 0 ]; then
+        mv "$file-decompiled" $reportOutputDir
+        
         echo "Decompiled $file successfully."
     else
         echo "Failed to decompile $file."
+        exit 1
     fi
 }

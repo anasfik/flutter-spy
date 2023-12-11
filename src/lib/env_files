@@ -1,18 +1,29 @@
 #!/bin/env
 
 spyOnEnvFiles() {
-    envFilePAths=$(find $1-decompiled -name "*.env*")
+    decompiledFolderBaseName=$(basename $1)
+    reportOutputDir=$2
+    envFilePaths=$(find "$reportOutputDir/$decompiledFolderBaseName-decompiled" -name "*.env*")
     
-    if [ $? -eq 0 ]; then
+    if [ -n "$envFilePaths" ]; then
         echo ""
         
-        for envFilePath in $envFilePAths ; do
-            onlyFileName=$(echo $envFilePath | rev | cut -d '/' -f 1 | rev)
+        mkdir -p $reportOutputDir/env_files
+        
+        for envFilePath in $envFilePaths ; do
+            onlyFileName=$(basename $envFilePath)
+            
             echo ""
             echo "Found $onlyFileName file with the following content:"
             echo "**************"
             cat $envFilePath
             echo "**************"
+            echo ""
+            
+            targetPath=$reportOutputDir/env_files/file_$onlyFileName
+            echo "Copying $envFilePath to $targetPath"
+            cp $envFilePath $targetPath
+            
             echo ""
         done
     else

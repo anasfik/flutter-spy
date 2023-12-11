@@ -1,17 +1,24 @@
 #!/bin/bash
 
 spyOnLibAppSoFile() {
-    fromLibAppSoFile=$(find $1-decompiled -name "libapp.so")
+    reportOutputDir=$2
+    onlyApkFileName=$(basename $1)
+    
+    fromLibAppSoFile=$(find  $2/$onlyApkFileName-decompiled -name "libapp.so")
     
     if [ $? -eq 0 ]; then
         echo ""
         echo "Found libapp.so files:"
-        echo $fromLibAppSoFile
+        for libAppSoFile in $fromLibAppSoFile ; do
+            echo $libAppSoFile
+        done
+        
         
         firstLibAppSoFile=$(echo $fromLibAppSoFile | cut -d ' ' -f 1)
         echo ""
-        echo "Using $firstLibAppSoFile"
-        extractInfoFromLibAppSoFile $firstLibAppSoFile
+        echo "Flutter Spy will use $firstLibAppSoFile to extract information."
+        echo ""
+        extractInfoFromLibAppSoFile $firstLibAppSoFile $reportOutputDir
         
     else
         echo "Failed to find libapp.so file."
@@ -23,7 +30,11 @@ spyOnLibAppSoFile() {
 
 
 startSpy() {
-    decompileApp $1
-    spyOnLibAppSoFile $1
-    spyOnEnvFiles $1
+    
+    reportOutputDir="report-$(date +%Y-%m-%d-%H-%M-%S)"
+    mkdir -p $reportOutputDir
+    
+    decompileApp $1 $reportOutputDir
+    spyOnLibAppSoFile $1 $reportOutputDir
+    spyOnEnvFiles $1 $reportOutputDir
 }

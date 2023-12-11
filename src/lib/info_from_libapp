@@ -10,6 +10,7 @@ extractEmailsFromLibAppSoFile() {
     echo $emails
     echo ""
     
+    echo $emails > $reportOutputDir/emails.txt
 }
 
 extractUrlsFromLibAppSoFile() {
@@ -55,6 +56,8 @@ extractUrlsFromLibAppSoFile() {
         echo $url
     done
     echo ""
+    
+    echo $uriFormattedCommand > $reportOutputDir/urls.txt
 }
 
 extractPhoneNumbersFromLibAppSoFile() {
@@ -70,6 +73,8 @@ extractPhoneNumbersFromLibAppSoFile() {
         echo $phoneNumber
     done
     echo ""
+    
+    echo $phoneNumbers > $reportOutputDir/phone_numbers.txt
 }
 
 extractApiEndpointsFromLibAppSoFile() {
@@ -85,6 +90,8 @@ extractApiEndpointsFromLibAppSoFile() {
         echo $apiEndpoint
     done
     echo ""
+    
+    echo $apiEndpoints > $reportOutputDir/api_endpoints.txt
 }
 
 extractPackageNamesFromLibAppSoFile() {
@@ -100,6 +107,8 @@ extractPackageNamesFromLibAppSoFile() {
         echo "https://pub.dev/packages/$packageName"
     done
     echo ""
+    
+    echo $packageNames > $reportOutputDir/packages.txt
 }
 
 
@@ -107,18 +116,23 @@ extractPackageNamesFromLibAppSoFile() {
 extractInfoFromLibAppSoFile() {
     
     libappSoFile=$1
-    reportOutputDir="report-$(date +%Y-%m-%d-%H-%M-%S)"
+    reportOutputDir=$2
     
-    mkdir "libapp"
-    cp $libappSoFile "libapp/libapp.so"
-    mkdir $reportOutputDir
-    mv "libapp" $reportOutputDir
+    
+    mkdir -p $reportOutputDir/libapp
+    pwd
+    echo "Copying $libappSoFile to $reportOutputDir/libapp/libapp.so"
+    
+    cp $libappSoFile "$reportOutputDir/libapp/libapp.so"
+    echo "libapp.so copied to $reportOutputDir/libapp/libapp.so"
+    
     
     extractEmailsFromLibAppSoFile $reportOutputDir
     extractUrlsFromLibAppSoFile $reportOutputDir
     extractPhoneNumbersFromLibAppSoFile $reportOutputDir
     extractApiEndpointsFromLibAppSoFile $reportOutputDir
     extractPackageNamesFromLibAppSoFile $reportOutputDir
+    
 }
 
 
