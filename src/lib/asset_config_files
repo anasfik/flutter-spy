@@ -3,7 +3,7 @@
 spyOnAssetConfigFiles() {
     decompiledFolderBaseName=$(basename $1)
     reportOutputDir=$2
-    assetFilePaths=$(find "$reportOutputDir/$decompiledFolderBaseName-decompiled" -name "*.json*" -o -name "*.yaml*" -o -name "*.yml*" -o -name "*.xml*" -o -name "*.properties*"  -o -name "*.ini*" | grep -Ea "assets")
+    assetFilePaths=$(find "$reportOutputDir/$decompiledFolderBaseName-decompiled" -name "*.json*" -o -name "*.yaml*" -o -name "*.yml*" -o -name "*.xml*" -o -name "*.properties*"  -o -name "*.ini*" | grep -Ea "assets" | sort -u)
     
     
     if [ -n "$assetFilePaths" ]; then

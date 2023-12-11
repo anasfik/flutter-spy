@@ -1,0 +1,35 @@
+#!/bin/bash
+
+spyOnVisualAssetFiles() {
+    decompiledFolderBaseName=$(basename $1)
+    reportOutputDir=$2
+    # include video files, ttf, psd, music
+    visualviusalAssetFilePaths=$(find "$reportOutputDir/$decompiledFolderBaseName-decompiled" -name "*.png*" -o -name "*.jpg*" -o -name "*.jpeg*" -o -name "*.gif*" -o -name "*.svg*" -o -name "*.webp*" -o -name "*.bmp*" -o -name "*.ico*" -o -name "*.tif*" -o -name "*.tiff*" -o -name "*.psd*" -o -name "*.ttf*" -o -name "*.mp3*" -o -name "*.mp4*" -o -name "*.avi*" -o -name "*.mov*" -o -name "*.flv*" -o -name "*.wav*" -o -name "*.aac*" -o -name "*.ogg*" -o -name "*.flac*" -o -name "*.wma*" -o -name "*.psd*" -o -name "*.ai*" -o -name "*.eps*" -o -name "*.indd*" -o -name "*.raw*" -o -name "*.svg*" -o -name "*.pdf*" -o -name "*.sketch*" -o -name "*.zip*" -o -name "*.rar*" -o -name "*.7z*" -o -name "*.tar*" -o -name "*.gz*" -o -name "*.bz2*" -o -name "*.dmg*" -o -name "*.iso*" -o -name "*.apk*" -o -name "*.exe*" -o -name "*.jar*" -o -name "*.war*" -o -name "*.ear*" -o -name "*.deb*" -o -name "*.rpm*" -o -name "*.msi*" -o -name "*.cab*" -o -name "*.tar.gz*" -o -name "*.tar.bz2*" -o -name "*.tar.xz*" -o -name "*.tar.Z*" -o -name "*.tar.lz*" -o -name "*.tar.lzma*" -o -name "*.tar.lzo*" -o -name "*.tar.xz*" -o -name "*.tar.Z*" -o -name "*.tar.lz*" -o -name "*.tar.lzma*" -o -name "*.tar.lzo*" -o -name "*.tar.zst*" | grep -Ea "assets" | sort -u)
+    
+    
+    
+    
+    if [ -n "$visualviusalAssetFilePaths" ]; then
+        echo ""
+        
+        mkdir -p $reportOutputDir/visual_assets_files
+        
+        echo ""
+        for viusalAssetFilePath in $visualviusalAssetFilePaths ; do
+            onlyFileName=$(basename $viusalAssetFilePath)
+            
+            echo "Found $onlyFileName file."
+            
+            
+            targetPath=$reportOutputDir/visual_assets_files/$onlyFileName
+            # echo "Copying $viusalAssetFilePath to $targetPath"
+            cp $viusalAssetFilePath $targetPath
+        done
+    else
+        echo "No other visual/audio files found."
+        
+    fi
+    
+    
+    
+}

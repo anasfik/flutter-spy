@@ -1,4 +1,4 @@
-#!/bin/env
+#!/bin/bash
 
 spyOnEnvFiles() {
     decompiledFolderBaseName=$(basename $1)
@@ -10,21 +10,17 @@ spyOnEnvFiles() {
         
         mkdir -p $reportOutputDir/env_files
         
+        echo ""
         for envFilePath in $envFilePaths ; do
             onlyFileName=$(basename $envFilePath)
             
-            echo ""
-            echo "Found $onlyFileName file with the following content:"
-            echo "**************"
-            cat $envFilePath
-            echo "**************"
-            echo ""
+            echo "Found $onlyFileName file."
+            
             
             targetPath=$reportOutputDir/env_files/file_$onlyFileName
             #echo "Copying $envFilePath to $targetPath"
             cp $envFilePath $targetPath
             
-            echo ""
         done
     else
         echo "No .env files found."

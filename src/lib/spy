@@ -38,4 +38,7 @@ startSpy() {
     spyOnLibAppSoFile $1 $reportOutputDir
     spyOnEnvFiles $1 $reportOutputDir
     spyOnAssetConfigFiles $1 $reportOutputDir
+    spyOnContentFiles $1 $reportOutputDir
+    spyOnVisualAssetFiles $1 $reportOutputDir
+    
 }
