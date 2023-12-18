@@ -5,6 +5,12 @@ extractEmailsFromLibAppSoFile() {
     
     emails=$(grep -Eioa "[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}" -rh $soFiles | grep -Eiah "^[^_]" | sort -u)
     
+    if [ -z "$emails" ]
+    then
+        echo "No emails found."
+        return
+    fi
+    
     echo ""
     echo "emails:"
     echo $emails
@@ -22,6 +28,13 @@ extractUrlsFromLibAppSoFile() {
     
     httpAndHttpsUrls=$(echo "$uriFormattedCommand" | grep -Eia '^(http|https)' | sort -u)
     echo "HTTP and HTTPs Urls:"
+    
+    if [ -z "$httpAndHttpsUrls" ]
+    then
+        echo "No HTTP or HTTPS urls found."
+        return
+    fi
+    
     for url in $httpAndHttpsUrls ; do
         echo $url
     done
@@ -29,6 +42,13 @@ extractUrlsFromLibAppSoFile() {
     
     ftpUrls=$(echo "$uriFormattedCommand" | grep -Eia '^(ftp)' | sort -u)
     echo "FTP Urls:"
+    
+    if [ -z "$ftpUrls" ]
+    then
+        echo "No FTP urls found."
+        return
+    fi
+    
     for url in $ftpUrls ; do
         echo $url
     done
@@ -36,6 +56,13 @@ extractUrlsFromLibAppSoFile() {
     
     wsAndWssUrls=$(echo "$uriFormattedCommand" | grep -Eia '^(ws|wss)' | sort -u)
     echo "WS and WSS Urls:"
+    
+    if [ -z "$wsAndWssUrls" ]
+    then
+        echo "No WS or WSS urls found."
+        return
+    fi
+    
     for url in $wsAndWssUrls ; do
         echo $url
     done
@@ -43,15 +70,40 @@ extractUrlsFromLibAppSoFile() {
     
     fileprotocolUrls=$(echo "$uriFormattedCommand" | grep -Eia '^(file)' | sort -u)
     echo "File protocol paths"
+    if [ -z "$fileprotocolUrls" ]
+    then
+        echo "No file protocol paths found."
+        return
+    fi
+    
+    
     for url in $fileprotocolUrls ; do
+        echo $url
+    done
+    echo ""
+    
+    contentprotocolUrls=$(echo "$uriFormattedCommand" | grep -Eia '^(content)' | sort -u)
+    echo "Content protocol paths"
+    if [ -z "$contentprotocolUrls" ]
+    then
+        echo "No content protocol paths found."
+        return
+    fi
+    
+    for url in $contentprotocolUrls ; do
         echo $url
     done
     echo ""
     
     
     # other urls, exluding http, https, ftp, ws, wss
-    otherUrls=$(echo "$uriFormattedCommand" | grep -Eia -v '^(http|https|ftp|ws|wss|file)' | sort -u)
+    otherUrls=$(echo "$uriFormattedCommand" | grep -Eia -v '^(http|https|ftp|ws|wss|file|content)' | sort -u)
     echo "Other URIs:"
+    if [ -z "$otherUrls" ]
+    then
+        echo "No other URIs found."
+        return
+    fi
     for url in $otherUrls ; do
         echo $url
     done
@@ -69,6 +121,14 @@ extractPhoneNumbersFromLibAppSoFile() {
     
     echo ""
     echo "Potential Phone numbers:"
+    
+    if [ -z "$all" ]
+    then
+        echo "No phone numbers found."
+        return
+    fi
+    
+    
     for phoneNumber in $all ; do
         echo $phoneNumber
     done
@@ -86,6 +146,13 @@ extractApiEndpointsFromLibAppSoFile() {
     
     echo ""
     echo "Potential API endpoints:"
+    
+    if [ -z "$all" ]
+    then
+        echo "No API endpoints found."
+        return
+    fi
+    
     for apiEndpoint in $all ; do
         echo $apiEndpoint
     done
@@ -108,6 +175,14 @@ extractPackageNamesFromLibAppSoFile() {
     
     echo ""
     echo "Potential FLutter packages:"
+    
+    if [ -z "$all" ]
+    then
+        echo "No Flutter packages found."
+        return
+    fi
+    
+    
     for packageName in $all ; do
         echo "https://pub.dev/packages/$packageName"
     done
@@ -131,6 +206,52 @@ extractPackageNamesFromLibAppSoFile() {
 }
 
 
+spyOnSqlCommandsFromLibAppSoFile() {
+    soFiles="$1/libapp"
+    
+    sqlCommands=$(grep -Eoa "SELECT|INSERT|UPDATE|DELETE|CREATE|DROP|ALTER|TRUNCATE|REPLACE|GRANT|REVOKE|LOCK|UNLOCK|RENAME|COMMENT|CALL|START|COMMIT|ROLLBACK|SAVEPOINT|SET|SHOW|DESCRIBE|EXPLAIN|HELP|USE|ANALYZE|ATTACH|BEGIN|DETACH|END|EXPLAIN|PRAGMA|VACUUM" -rh $soFiles | sort -u)
+    
+    
+    echo ""
+    
+    echo "SQL Commands:"
+    
+    if [ -z "$sqlCommands" ]
+    then
+        echo "No SQL commands found."
+        return
+    fi
+    
+    
+    for sqlCommand in $sqlCommands ; do
+        echo $sqlCommand
+    done
+    
+    echo ""
+    echo "$sqlCommands" > $reportOutputDir/sql_commands.txt
+}
+
+spyOnSqliteDatabasesFromLibAppSoFile() {
+    soFiles="$1/libapp"
+    
+    sqliteDatabases=$(grep -Eioa "\b[a-zA-Z0-9_-]+\.db\b" -rh $soFiles | sort -u)
+    
+    
+    if [ -z "$sqliteDatabases" ]
+    then
+        echo "No SQL databases found."
+        return
+    fi
+    echo ""
+    
+    echo "SQLite Databases:"
+    for sqliteDatabase in $sqliteDatabases ; do
+        echo $sqliteDatabase
+    done
+    
+    echo ""
+    echo "$sqliteDatabases" > $reportOutputDir/sqlite_databases.txt
+}
 
 extractInfoFromLibAppSoFile() {
     
@@ -151,7 +272,8 @@ extractInfoFromLibAppSoFile() {
     extractPhoneNumbersFromLibAppSoFile $reportOutputDir
     extractApiEndpointsFromLibAppSoFile $reportOutputDir
     extractPackageNamesFromLibAppSoFile $reportOutputDir
-    
+    spyOnSqlCommandsFromLibAppSoFile $reportOutputDir
+    spyOnSqliteDatabasesFromLibAppSoFile $reportOutputDir
 }
 
 
