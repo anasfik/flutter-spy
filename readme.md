@@ -22,13 +22,12 @@ Flutter Spy supports currently gathering info from Android apps only (APK files)
 
 ## Features
 
-- [ ] Data Extraction: Extracts essential information such as API endpoints, URLs, emails, used packages, phone numbers, secret/public keys, environment variables, and config files.
+- [x] Data Extraction: Extracts essential information such as API endpoints, URLs, emails, used packages, phone numbers, secret/public keys, environment variables, and config files.
   - [x] Extract emails.
   - [x] Extract URLs/URIs.
   - [x] Extract potential phone numbers.
   - [x] Extract potential API endpoints/routes.
   - [x] Extract used Flutter packages and their links at [pub.dev](https://pub.dev/).
-  - [ ] Extract common API keys such as Firebase, Stripe, OpenAI, AWS...
   - [x] Extract SQL and other database queries...
   - [x] Extract `.env` (Environment Variables) files.
   - [x] Extract Potential JSON/YAML config files.
@@ -38,15 +37,20 @@ Flutter Spy supports currently gathering info from Android apps only (APK files)
   - [ ] Extract used Flutter Engine information as the used Flutter engine.
   - [x] Extract the original project file structure.
 
+- [x] Exportable Reports: Output a detailed report folder with all results.
+
+- [x] Easy to use: Flutter Spy is designed to be easy to use and requires no prior knowledge of Flutter or Dart, you can use it on any built Flutter app.
+
+## Planned Features
+Let me know if there is need for this:
+
+- [ ] Extract common API keys such as Firebase, Stripe, OpenAI, AWS...
 - [ ] Code Analysis: Performs static analysis on the app's code to identify potential security issues and vulnerabilities.
   - [ ]  Analyse the `AndroidManifest.xml` file and gather permissions, intents, activities, services, compileSdkVersion, minSdkVersion, and targetSdkVersion.
   - [ ]  Analyse MainActivity.java used platform channels, initializations...
 
 - [ ] Automated bug hunting: Identifies common security issues and vulnerabilities such as unsecured API endpoints, exposed sensitive data, and Insecure Firebase Database (this is planned to be done with another language, maybe Python or Dart itself).
 
-- [x] Exportable Reports: Output a detailed report folder with all results.
-
-- [x] Easy to use: Flutter Spy is designed to be easy to use and requires no prior knowledge of Flutter or Dart, you can use it on any built Flutter app.
 
 ## Prerequisites
 To run Flutter Spy without issues, make sure these utilities are installed globally in your machine.
