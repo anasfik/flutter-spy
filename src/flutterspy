@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# 1.0.0
+
 echo -e "\e[33mFlutter-spy is under active development, please check https://github.com/anasfik/flutter-spy/ for updates.\e[0m"
 echo ""
 
