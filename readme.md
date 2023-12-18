@@ -11,14 +11,14 @@
 Usage: flutter-spy <file>
 
 Arguments:
-  file          The apk file to spy on
+  file          The APK file to spy on
 ```
 
 ## Overview
 
 Flutter Spy is a Bash-based command-line tool designed to provide insightful code analysis and data extraction capabilities from built Flutter apps with reverse engineering. It empowers developers, bug hunters, and security enthusiasts to explore and uncover valuable information within Flutter app binaries.
 
-Flutter Spy support currently gathering info from Android apps only (APK files), thus it is universal for almost all other platforms since this is what Flutter is used for.  
+Flutter Spy supports currently gathering info from Android apps only (APK files), thus it is universal for almost all other platforms since this is what Flutter is used for.  
 
 ## Features
 
@@ -76,7 +76,14 @@ Open a new terminal window and run `flutterspy` to make sure that the installati
 flutter-spy /path/to/apk/file.apk
 ```
 
-And that's it, the script will do the rest for you.
+And that's it, the script will do the rest for showing you all findings by exporting a report folder containing all findings is named based on the exact date of export:
+
+```bash
+report-$(date +%Y-%m-%d-%H-%M-%S)
+
+# Example: report-2023-12-18-18-17-43
+```
+it will contain everything.
 
 ## License
 
