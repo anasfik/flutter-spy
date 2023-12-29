@@ -56,7 +56,7 @@ showRootCommandContent() {
 /_/   /_/\__,_/\__/\__/\___/_/      /____/ .___/\__, /
                                         /_/    /____/
     "
-    echo "Usage: flutter-spy <file>"
+    echo "Usage: flutterspy <file>"
     echo ""
     echo "Arguments:"
     echo "  file          The apk file to spy on"
