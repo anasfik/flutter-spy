@@ -42,7 +42,7 @@ Flutter Spy supports currently gathering info from Android apps only (APK files)
 - [x] Easy to use: Flutter Spy is designed to be easy to use and requires no prior knowledge of Flutter or Dart, you can use it on any built Flutter app.
 
 ## Planned Features
-Let me know if there is need for this:
+Let me know if there is a need for this:
 
 - [ ] Extract common API keys such as Firebase, Stripe, OpenAI, AWS...
 - [ ] Code Analysis: Performs static analysis on the app's code to identify potential security issues and vulnerabilities.
@@ -88,6 +88,13 @@ report-$(date +%Y-%m-%d-%H-%M-%S)
 # Example: report-2023-12-18-18-17-43
 ```
 it will contain everything.
+
+## Want to help this?
+as a Developer, and, because I don't know everything, you can help this project by informing me about possible findings in a FLutter app other than existing ones, and this is by:
+
+- if you're a Flutter developer, try this tool on your build app, if you notice that important information like API keys, phrases, assets, and native libraries... are not extracted, then please open an issue with details, it is not necessary to include your app, just expected findings.
+- if you're a Bug hunter or Pen tester, and you know any information or vulnerabilities that are previously reported by you or the community, just open an issue and mention it, and I will handle the rest.
+- Try the tool on any found Flutter-built apps, then mention any issues or unexpected behaviors you face if any.
 
 ## License
 
