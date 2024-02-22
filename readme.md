@@ -34,23 +34,12 @@ Flutter Spy supports currently gathering info from Android apps only (APK files)
   - [x] Extract content-specific files. (md, html, css, js...)
   - [x] Extract Potential localization files.
   - [x] Extract all other Flutter assets (PNG, GIF, SVG, TTF, PSD, WEBP...).
-  - [ ] Extract used Flutter Engine information as the used Flutter engine.
+  - [ ] Extract used Flutter Engine information as the used Flutter engine version, Dart language version, version hashes...
   - [x] Extract the original project file structure.
 
 - [x] Exportable Reports: Output a detailed report folder with all results.
 
 - [x] Easy to use: Flutter Spy is designed to be easy to use and requires no prior knowledge of Flutter or Dart, you can use it on any built Flutter app.
-
-## Planned Features
-Let me know if there is a need for this:
-
-- [ ] Extract common API keys such as Firebase, Stripe, OpenAI, AWS...
-- [ ] Code Analysis: Performs static analysis on the app's code to identify potential security issues and vulnerabilities.
-  - [ ]  Analyse the `AndroidManifest.xml` file and gather permissions, intents, activities, services, compileSdkVersion, minSdkVersion, and targetSdkVersion.
-  - [ ]  Analyse MainActivity.java used platform channels, initializations...
-
-- [ ] Automated bug hunting: Identifies common security issues and vulnerabilities such as unsecured API endpoints, exposed sensitive data, and Insecure Firebase Database (this is planned to be done with another language, maybe Python or Dart itself).
-
 
 ## Prerequisites
 To run Flutter Spy without issues, make sure these utilities are installed globally in your machine.
