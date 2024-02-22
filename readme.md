@@ -55,10 +55,13 @@ Let me know if there is a need for this:
 ## Prerequisites
 To run Flutter Spy without issues, make sure these utilities are installed globally in your machine.
 
-- [x] [Jadx CLI](https://github.com/skylot/jadx): Used to decompile the APK file, Flutter Spy will look to get its full path with `which jadx` command. (if you are on Debian-based distros such as Ubuntu/Kali Linux, you can install it via sudo apt install jadx)
+- [x] [Jadx CLI](https://github.com/skylot/jadx): Used to decompile the APK file, Flutter Spy will look to get its full path with `which jadx` command. (if you are on Debian-based distros such as Ubuntu/Kali Linux, you can install it via `sudo apt install jadx`)
+
+**NOTE:** For Termux Installation You don't need to do the installation manually, the installation script will take care of it, also if you've jadx previously installed it'll skip jadx installation.
 
 ## Installation
 
+- **Linux:**
 Note: Before installing Flutter Spy, please know that Flutter Spy is under active development, there are a lot of [features](#features) that are not implemented or incomplete.
 
 Run this command in your terminal to install Flutter Spy:
@@ -68,6 +71,11 @@ git clone https://github.com/anasfik/flutter-spy.git # Clone the repo
 cd flutter-spy # Change the directory to the repo
 chmod +x INSTALLER.sh # Make the installer executable
 ./INSTALLER.sh # Run the installer
+```
+
+- **Android(Termux):**
+```shell
+pkg install wget && wget https://raw.githubusercontent.com/anasfik/flutter-spy/main/install_termux.sh && chmod +x install_termux.sh && ./install_termux.sh
 ```
 
 This will install Flutter Spy in your home directory, at `~/.flutter-spy/`, and add the export path command to the correct profile file (`.bashrc` for Bash, `.zshrc` for ZSH, and `.profile` for Fish).
