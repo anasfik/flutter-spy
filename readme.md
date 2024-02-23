@@ -13,6 +13,10 @@ Usage: flutter-spy <file>
 Arguments:
   file          The APK file to spy on
 ```
+## Demo
+<p align="center">
+<img width="800px" src="https://github.com/anasfik/flutter-spy/assets/25140579/5cf47717-e511-47aa-85af-865b0b2cfc33" />
+</p>
 
 ## Overview
 
