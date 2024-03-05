@@ -89,9 +89,7 @@ export ANDROID_HOME=$HOME/android-sdk
 export PATH=$PATH:$HOME/android-sdk/cmdline-tools/latest/bin
 export PATH=$PATH:$HOME/android-sdk/platform-tools
 export PATH=$PATH:$HOME/android-sdk/build-tools/34.0.4
-export PATH=$PATH:$HOME/android-sdk/ndk/$ndk_version
 export PATH=$PATH:$PREFIX/lib/jadx/bin
-export ANDROID_NDK_ROOT=$HOME/android-sdk/ndk/$ndk_version
 EOL
 elif [ -f "~/.zshrc" ]; then
   cat <<- EOL >> ~/.zshrc
@@ -99,9 +97,7 @@ export ANDROID_HOME=$HOME/android-sdk
 export PATH=$PATH:$HOME/android-sdk/cmdline-tools/latest/bin
 export PATH=$PATH:$HOME/android-sdk/platform-tools
 export PATH=$PATH:$HOME/android-sdk/build-tools/34.0.4
-export PATH=$PATH:$HOME/android-sdk/ndk/$ndk_version
 export PATH=$PATH:$PREFIX/lib/jadx/bin
-export ANDROID_NDK_ROOT=$HOME/android-sdk/ndk/$ndk_version
 EOL
 else
   cat <<- EOL >> $PREFIX/etc/bash.bashrc
@@ -109,8 +105,6 @@ export ANDROID_HOME=$HOME/android-sdk
 export PATH=$PATH:$HOME/android-sdk/cmdline-tools/latest/bin
 export PATH=$PATH:$HOME/android-sdk/platform-tools
 export PATH=$PATH:$HOME/android-sdk/build-tools/34.0.4
-export PATH=$PATH:$HOME/android-sdk/ndk/$ndk_version
 export PATH=$PATH:$PREFIX/lib/jadx/bin
-export ANDROID_NDK_ROOT=$HOME/android-sdk/ndk/$ndk_version
 EOL
 fi
