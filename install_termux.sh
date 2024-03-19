@@ -57,7 +57,7 @@ echo "${green}━━━ Setting up apktool ━━━${nocolor}"
 if [ -f "$PREFIX/bin/apktool.jar" ]; then
   echo "${blue}apktool is already installed${nocolor}"
 else
-  sh -c 'wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.9.1.jar -O $PREFIX/bin/apktool.jar'
+  sh -c 'wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.9.3.jar -O $PREFIX/bin/apktool.jar'
   
   chmod +r $PREFIX/bin/apktool.jar
   
